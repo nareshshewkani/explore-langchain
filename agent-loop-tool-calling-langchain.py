@@ -3,8 +3,7 @@ from dotenv import load_dotenv
 from langchain.chat_models import init_chat_model
 from langchain.messages import HumanMessage, AIMessage, ToolMessage, SystemMessage
 from langsmith import traceable
-
-
+load_dotenv()
 MAX_ITERATIONS = 10
 MODEL = 'qwen3.5:4b-mlx'
 
@@ -106,7 +105,7 @@ def run_agent(question:str):
             break
 
 
-    print(final_answer)
+    return final_answer
     
     
 
@@ -117,7 +116,7 @@ def run_agent(question:str):
 if __name__== "__main__":
     print("Welcome to the agent!")
     question = "What will be the price of a laptop with gold tier membership?"
-    run_agent(question)
+    print(run_agent(question))
 
 
 
